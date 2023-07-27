@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Unica One', cursive;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-family: 'Unica One', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+}

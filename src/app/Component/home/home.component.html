@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<section id="home" class="mt-5">
+    <div class="container mt-5 pt-5">
+        <ng-container *ngIf="!loading">
+            <div class="row movieList">
+                <div class="col-md-6 mb-5" *ngFor="let movie of movieList">
+                    <div class="card overflow-hidden">
+                        <div class="row g-0">
+                            <div class="col-sm-5 bg-repeat-0 bg-size-cover"
+                                style="background-image: url({{movie.moviePoster}}); min-height: 14rem; background-position: center;">
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="card-body">
+                                    <h3 class="h4">{{movie.movieName}}</h3>
+                                    <ul class="text-body list-unstyled mb-3">
+                                        <li class="mb-2">
+                                            <span class="fw-bold">Genre: </span>
+                                            <span>{{movie.genre}}</span>
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="fw-bold">Languages: </span>
+                                            <span *ngFor="let language of movie.languages | split:','">
+                                                {{language}}
+                                            </span>
+                                        </li>
+                                        <li class="mb-2">
+                                            <span class="fw-bold">Description: </span>
+                                            <span class="">{{movie.description}}</span>
+                                        </li>
+                                    </ul>
+                                    <a routerLink="ticket/booking/{{movie.id}}" class="btn btn-outline-primary btn-sm">
+                                        Book Tickets
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a href="#" class="card-flip">
+                        <div class="card-flip-inner">
+                            <div class="card-flip-front"
+                                style="background-image: url({{movie.moviePoster}});background-size: contain;">
+                            </div>
+                            <div class="card-flip-back bg-secondary">
+                                <div class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3">
+                                    <h3 class="h4">{{movie.movieName}}</h3>
+                                    <ul class="text-body list-unstyled mb-3">
+                                        <li class="mb-2">
+                                            <span>Genre: </span>
+                                            <strong>{{movie.genre}}</strong>
+                                        </li>
+                                        <li class="mb-2">
+                                            <span>Languages: </span>
+                                            <strong *ngFor="let language of movie.languages | split:','">
+                                                {{language}}
+                                            </strong>
+                                        </li>
+                                        <li class="mb-2">
+                                            <span>Description: </span>
+                                            <strong class="">{{movie.description}}</strong>
+                                        </li>
+                                    </ul>
+                                    <a routerLink="ticket/booking/{{movie.id}}" class="btn btn-outline-primary btn-sm">
+                                        Book Tickets
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </a> -->
+                </div>
+            </div>
+        </ng-container>
+        <app-loader [loading]="loading"></app-loader>
+    </div>
+</section>
