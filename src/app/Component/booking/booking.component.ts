@@ -110,10 +110,6 @@ export class BookingComponent implements OnInit {
           console.log(res);
           this.submitted = false
           this.toast.show(res.message, { classname: 'bg-success text-light', delay: 5000 })
-
-          setTimeout(() => {
-            location.reload();
-          }, 2000)
         },
         error: (err: HttpErrorResponse) => {
           console.log(err)
